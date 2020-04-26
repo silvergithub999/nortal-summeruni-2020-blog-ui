@@ -1,7 +1,7 @@
 export class User {
   private _token: string;
   private tokenExpirationDate: Date;
-  private _username: string = 'TEMPORARY';
+  private _username: string;
 
 
   constructor(token: string) {

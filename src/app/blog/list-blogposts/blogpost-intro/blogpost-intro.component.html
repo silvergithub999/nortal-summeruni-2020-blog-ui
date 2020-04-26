@@ -8,6 +8,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-button [routerLink]="['/blog/', blogpost.id]">View</button>
-    <button *ngIf="user == blogpost.author" mat-button [routerLink]="['/blog/edit/', blogpost.id]">Edit</button>
+    <button *ngIf="username == blogpost.author" mat-button [routerLink]="['/blog/edit/', blogpost.id]">Edit</button>
   </mat-card-actions>
 </mat-card>

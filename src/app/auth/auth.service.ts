@@ -15,7 +15,10 @@ export class AuthService {
   constructor(private http: HttpClient,
               private router: Router) {
     const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');  // TODO: get it out of token
     if (token) {
+      const user = new User(token);
+      user.username = username;
       this.user.next(new User(token));
     }
   }
@@ -35,8 +38,10 @@ export class AuthService {
       tap(responseData => {
         const token = responseData.headers.get('Authorization');
         const user = new User(token);
+        user.username = username;
         this.user.next(user);
         localStorage.setItem('token', user.token);
+        localStorage.setItem('username', username);
       }));
   }
 

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Blogpost} from '../../blogpost';
+import {AuthService} from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-blogpost-intro',
@@ -9,9 +10,12 @@ import {Blogpost} from '../../blogpost';
 export class BlogpostIntroComponent implements OnInit {
   @Input() blogpost: Blogpost;
 
-  constructor() { }
+  username = 'ERROR';
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.username = this.authService.user.getValue().username;
   }
 
 }
