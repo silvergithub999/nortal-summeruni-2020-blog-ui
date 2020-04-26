@@ -1,0 +1,23 @@
+{
+  "/api": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/auth/login": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/auth/register": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/auth/logout": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
+

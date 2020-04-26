@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Generic Blogging Website</span>
+    <button mat-button color="white" class="nav-button" routerLinkActive="active-list-item" [routerLink]="['/', 'blog', 'list']">All Blog Posts</button>
+    <button mat-button color="white" class="nav-button" routerLinkActive="active-list-item" [routerLink]="['/', 'blog', 'new']">Create a Blog Post</button>
+    <span class="fill-space"></span>
+    <button mat-button color="white" (click)="logout()" class="logoutButton">Log out</button>
+  </mat-toolbar-row>
+</mat-toolbar>

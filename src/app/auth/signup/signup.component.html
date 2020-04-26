@@ -1,0 +1,48 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="authForm">
+
+  <h2 class="website-name">Generic Blogging Website</h2>
+  <h2 class="website-name">Sign up</h2>
+
+  <button mat-button color="accent" type="button" [routerLink]="['/', 'login']">
+    Already have an account? Click here to log in!
+  </button>
+
+  <p style="color: red; text-align: center" *ngIf="signUpErrorMessage">
+    {{signUpErrorMessage}}
+  </p>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error>
+      <span *ngIf="authForm.get('email').invalid && authForm.get('email').dirty && authForm.get('email').errors.required">
+        The email is required!
+      </span>
+      <span *ngIf="authForm.get('email').invalid && authForm.get('email').dirty && authForm.get('email').errors.email">
+        Email is invalid
+      </span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username">
+    <mat-error>Username required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-error>Password required</mat-error>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="loader" *ngIf="loading">Loading...</div>
+
+  <button mat-flat-button *ngIf="!loading" [disabled]="!authForm.valid" color="accent" type="submit">
+    Sign up
+  </button>
+</form>
+

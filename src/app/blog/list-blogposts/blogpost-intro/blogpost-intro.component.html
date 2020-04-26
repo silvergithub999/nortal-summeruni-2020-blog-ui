@@ -1,0 +1,13 @@
+<mat-card class="blogSummary">
+  <mat-card-header>
+    <mat-card-title>{{blogpost.title}}</mat-card-title>
+    <mat-card-subtitle>Created by {{blogpost.author}} on {{blogpost.timeOfCreation}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{blogpost.content | shortenpipe}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/blog/', blogpost.id]">View</button>
+    <button *ngIf="user == blogpost.author" mat-button [routerLink]="['/blog/edit/', blogpost.id]">Edit</button>
+  </mat-card-actions>
+</mat-card>

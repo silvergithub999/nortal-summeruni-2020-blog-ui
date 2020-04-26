@@ -1,0 +1,23 @@
+<div class="listBlogPosts">
+  <div *ngIf="allBlogPosts.length > 0">
+    <div>
+      <h2>All Blog Posts</h2>
+      <mat-form-field>
+        <mat-label>Sort by</mat-label>
+        <mat-select value="date">
+          <mat-option value="date" (click)="sortByDate()">
+            Date
+          </mat-option>
+          <mat-option value="title" (click)="sortByTitle()">
+            Title
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngFor="let blogpost of allBlogPosts; let i=index" class="blogPostList">
+      <app-blogpost-intro [blogpost]="blogpost"></app-blogpost-intro>
+    </div >
+  </div>
+  <h2 *ngIf="allBlogPosts.length == 0">No blog posts yet...</h2>
+</div>
+

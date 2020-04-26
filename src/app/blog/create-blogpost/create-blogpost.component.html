@@ -1,0 +1,27 @@
+<div class="blogPostForm">
+
+  <h2>Create a blog post</h2>
+
+  <form [formGroup]="createBlogpostForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+      <input placeholder="Title" matInput id="title" type="text" formControlName="title">
+      <mat-error>Title required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <textarea placeholder="Hello readers..." matInput id="content" type="text" formControlName="content" rows="8"></textarea>
+      <mat-error>
+      <span style="color: red" *ngIf="content.invalid && content.dirty && content.errors.required">
+        The content is required!
+      </span>
+        <span style="color: red" *ngIf="content.invalid && content.dirty && content.errors.minlength">
+        The content has to be more that 50 characters!
+      </span>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="accent" type="submit" [disabled]="!createBlogpostForm.valid">Create blog post</button>
+  </form>
+</div>
+

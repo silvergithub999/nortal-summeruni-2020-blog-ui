@@ -1,0 +1,13 @@
+.deleteUpdateButton {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+button:first-of-type {
+  margin-right: 1em;
+}
+
+button:last-of-type {
+  margin-left: 1em;
+}
