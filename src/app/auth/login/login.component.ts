@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
       responseData => {
         this.loading = false;
         this.loginErrorMessage = null;
-        this.authService.user.next(username);
         this.router.navigate(['/', 'blog']);
       },
       error1 => {

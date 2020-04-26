@@ -16,7 +16,7 @@ export class ListBlogpostsComponent implements OnInit {
               private authService: AuthService) { }
 
   ngOnInit() {
-    this.user = this.authService.user.getValue();
+    this.user = this.authService.user.getValue().username;
     this.blogService.getAllPosts().subscribe(blogPosts => {
       this.allBlogPosts = blogPosts;
     });
