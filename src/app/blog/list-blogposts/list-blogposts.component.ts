@@ -23,7 +23,7 @@ export class ListBlogpostsComponent implements OnInit {
   }
 
   sortByTitle() {
-    this.allBlogPosts = this.allBlogPosts.sort((blog1, blog2) => blog1.title.localeCompare(blog2.title))
+    this.allBlogPosts = this.allBlogPosts.sort((blog1, blog2) => blog1.title.localeCompare(blog2.title));
   }
 
   sortByDate() {

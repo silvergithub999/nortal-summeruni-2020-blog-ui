@@ -23,8 +23,8 @@ export class AuthService {
     }
   }
 
-  private signupEndpoint = '/register';
-  private loginEndpoint = '/login';
+  private signupEndpoint = '/api/register';
+  private loginEndpoint = '/api/login';
 
   login(username: string, password: string, rememberMe: boolean) {
     return this.http.post(
